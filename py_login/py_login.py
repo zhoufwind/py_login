@@ -3,9 +3,9 @@ database = {'stephen': '123'}
 def lookup(name):
     'show the password if user exist/ return None if user don\'t exist.'
     return database.get(name)
-#print 'user\'s password: ', lookup('stephen')
 
 def register():
+    'Add user name and password into database'
     while True:
         name = raw_input('Add user name: ').lower()
         if not name:
@@ -15,10 +15,9 @@ def register():
             break
         pwd = raw_input('Add user password: ').lower()
         database[name] = pwd
-register()
 
 def login():
-    'Login function.'
+    'Login function'
     name = raw_input('Enter user name: ').lower()
     if lookup(name):
         for i in range(3):
@@ -35,4 +34,7 @@ def login():
             print 'Login Failed'
     else:
         print ('User don\'t exist!!')
+
+#print 'user\'s password: ', lookup('stephen')
+#register()
 login()
